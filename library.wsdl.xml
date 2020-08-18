@@ -1,0 +1,1142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="libraryService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="libraryService" targetNamespace="libraryService">
+  <wsdl:types>
+    <xs:schema xmlns:cmn="libraryService" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="libraryService">
+
+<!--  AUTHOR  -->
+    <xs:element name="getAuthorRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="authorId" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getAuthorResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="author" type="cmn:AuthorType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getAuthorsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="search" type="cmn:SearchParamsWithPagination"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getAuthorsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="authors" type="cmn:Authors"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="createAuthorRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="author" type="cmn:AuthorType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="createAuthorResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="author" type="cmn:AuthorType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateAuthorRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="author" type="cmn:AuthorType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateAuthorResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="author" type="cmn:AuthorType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteAuthorRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="authorId" type="xs:long"/>
+                <xs:element name="options" type="cmn:DeleteParams"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteAuthorResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="status" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="searchAuthorsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="query" type="xs:string"/>
+                <xs:element name="search" type="cmn:SearchParams"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="searchAuthorsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="authors" type="cmn:Authors"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getAuthorByBookRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="bookId" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getAuthorByBookResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="author" type="cmn:AuthorType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getAuthorsByGenreRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="genreId" type="xs:long"/>
+                <xs:element name="search" type="cmn:SearchParamsWithPagination"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getAuthorsByGenreResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="authors" type="cmn:Authors"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+<!--  GENRE  -->
+    <xs:element name="getGenreRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="genreId" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getGenreResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="genre" type="cmn:GenreType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getGenresRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="search" type="cmn:SearchParamsWithPagination"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getGenresResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="genres" type="cmn:Genres"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="createGenreRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="genre" type="cmn:GenreType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="createGenreResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="genre" type="cmn:GenreType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateGenreRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="genre" type="cmn:GenreType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateGenreResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="genre" type="cmn:GenreType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteGenreRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="genreId" type="xs:long"/>
+                <xs:element name="options" type="cmn:DeleteParams"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteGenreResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="status" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="searchGenresRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="query" type="xs:string"/>
+                <xs:element name="search" type="cmn:SearchParams"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="searchGenresResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="genres" type="cmn:Genres"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getGenreByBookRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="bookId" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getGenreByBookResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="genre" type="cmn:GenreType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getGenresByAuthorRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="authorId" type="xs:long"/>
+                <xs:element name="search" type="cmn:SearchParams"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getGenresByAuthorResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="genres" type="cmn:Genres"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+<!--  BOOK  -->
+    <xs:element name="getBookRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="bookId" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getBookResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="book" type="cmn:BookType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getBooksRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="search" type="cmn:SearchParamsWithPagination"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getBooksResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="books" type="cmn:Books"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="createBookRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="authorId" type="xs:long"/>
+                <xs:element name="genreId" type="xs:long"/>
+                <xs:element name="book" type="cmn:BookType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="createBookResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="book" type="cmn:BookType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateBookRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="book" type="cmn:BookType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateBookResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="book" type="cmn:BookType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteBookRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="bookId" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteBookResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="status" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="searchBooksRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="query" type="xs:string"/>
+                <xs:element name="search" type="cmn:SearchParams"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="searchBooksResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="books" type="cmn:Books"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getBooksByGenreRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="genreId" type="xs:long"/>
+                <xs:element name="search" type="cmn:SearchParamsWithPagination"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getBooksByGenreResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="books" type="cmn:Books"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getBooksByAuthorRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="authorId" type="xs:long"/>
+                <xs:element name="search" type="cmn:SearchParams"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getBooksByAuthorResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="books" type="cmn:Books"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getBooksByAuthorAndGenreRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="authorId" type="xs:long"/>
+                <xs:element name="genreId" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getBooksByAuthorAndGenreResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="books" type="cmn:Books"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <!--  TYPES  -->
+    <xs:complexType name="AuthorType">
+        <xs:sequence>
+            <xs:element name="authorId" type="xs:long"/>
+            <xs:element name="authorName">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="first" type="xs:string"/>
+                        <xs:element name="second" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="nationality" type="xs:string"/>
+            <xs:element name="birth">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="date" type="xs:string"/>
+                        <xs:element name="country" type="xs:string"/>
+                        <xs:element name="city" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="authorDescription" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="BookType">
+        <xs:sequence>
+            <xs:element name="bookId" type="xs:long"/>
+            <xs:element name="bookName" type="xs:string"/>
+            <xs:element name="bookLanguage" type="xs:string"/>
+            <xs:element name="bookDescription" type="xs:string"/>
+            <xs:element name="additional">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="pageCount" type="xs:integer"/>
+                        <xs:element name="size">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="height" type="xs:float"/>
+                                    <xs:element name="width" type="xs:float"/>
+                                    <xs:element name="length" type="xs:float"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="publicationYear" type="xs:integer"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="GenreType">
+        <xs:sequence>
+            <xs:element name="genreId" type="xs:long"/>
+            <xs:element name="genreName" type="xs:string"/>
+            <xs:element name="genreDescription" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="SearchParamsWithPagination">
+        <xs:sequence>
+            <xs:element default="asc" name="orderType">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="asc"/>
+                        <xs:enumeration value="desc"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element default="1" name="page">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="1"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element default="true" name="pagination" type="xs:boolean"/>
+            <xs:element default="10" name="size">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="1"/>
+                        <xs:maxInclusive value="100"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="SearchParams">
+        <xs:sequence>
+            <xs:element default="asc" name="orderType">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="asc"/>
+                        <xs:enumeration value="desc"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element default="10" name="size">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="1"/>
+                        <xs:maxInclusive value="100"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="DeleteParams">
+        <xs:sequence>
+            <xs:element default="false" name="forcibly" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Authors">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="author" type="cmn:AuthorType"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="Genres">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="genre" type="cmn:GenreType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Books">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="book" type="cmn:BookType"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="searchGenresRequest">
+    <wsdl:part element="tns:searchGenresRequest" name="searchGenresRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAuthorResponse">
+    <wsdl:part element="tns:getAuthorResponse" name="getAuthorResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateGenreResponse">
+    <wsdl:part element="tns:updateGenreResponse" name="updateGenreResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteBookRequest">
+    <wsdl:part element="tns:deleteBookRequest" name="deleteBookRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="searchAuthorsResponse">
+    <wsdl:part element="tns:searchAuthorsResponse" name="searchAuthorsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteAuthorRequest">
+    <wsdl:part element="tns:deleteAuthorRequest" name="deleteAuthorRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getGenresRequest">
+    <wsdl:part element="tns:getGenresRequest" name="getGenresRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBookRequest">
+    <wsdl:part element="tns:getBookRequest" name="getBookRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBooksByAuthorAndGenreResponse">
+    <wsdl:part element="tns:getBooksByAuthorAndGenreResponse" name="getBooksByAuthorAndGenreResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAuthorByBookResponse">
+    <wsdl:part element="tns:getAuthorByBookResponse" name="getAuthorByBookResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getGenresByAuthorResponse">
+    <wsdl:part element="tns:getGenresByAuthorResponse" name="getGenresByAuthorResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createBookResponse">
+    <wsdl:part element="tns:createBookResponse" name="createBookResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createAuthorResponse">
+    <wsdl:part element="tns:createAuthorResponse" name="createAuthorResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getGenreRequest">
+    <wsdl:part element="tns:getGenreRequest" name="getGenreRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAuthorsByGenreRequest">
+    <wsdl:part element="tns:getAuthorsByGenreRequest" name="getAuthorsByGenreRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getGenreByBookResponse">
+    <wsdl:part element="tns:getGenreByBookResponse" name="getGenreByBookResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateAuthorResponse">
+    <wsdl:part element="tns:updateAuthorResponse" name="updateAuthorResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="searchBooksResponse">
+    <wsdl:part element="tns:searchBooksResponse" name="searchBooksResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getGenreResponse">
+    <wsdl:part element="tns:getGenreResponse" name="getGenreResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getGenreByBookRequest">
+    <wsdl:part element="tns:getGenreByBookRequest" name="getGenreByBookRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="searchAuthorsRequest">
+    <wsdl:part element="tns:searchAuthorsRequest" name="searchAuthorsRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createAuthorRequest">
+    <wsdl:part element="tns:createAuthorRequest" name="createAuthorRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createBookRequest">
+    <wsdl:part element="tns:createBookRequest" name="createBookRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateAuthorRequest">
+    <wsdl:part element="tns:updateAuthorRequest" name="updateAuthorRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateBookRequest">
+    <wsdl:part element="tns:updateBookRequest" name="updateBookRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAuthorByBookRequest">
+    <wsdl:part element="tns:getAuthorByBookRequest" name="getAuthorByBookRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteGenreRequest">
+    <wsdl:part element="tns:deleteGenreRequest" name="deleteGenreRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBookResponse">
+    <wsdl:part element="tns:getBookResponse" name="getBookResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAuthorsByGenreResponse">
+    <wsdl:part element="tns:getAuthorsByGenreResponse" name="getAuthorsByGenreResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBooksByAuthorResponse">
+    <wsdl:part element="tns:getBooksByAuthorResponse" name="getBooksByAuthorResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBooksResponse">
+    <wsdl:part element="tns:getBooksResponse" name="getBooksResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAuthorRequest">
+    <wsdl:part element="tns:getAuthorRequest" name="getAuthorRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAuthorsResponse">
+    <wsdl:part element="tns:getAuthorsResponse" name="getAuthorsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBooksByAuthorRequest">
+    <wsdl:part element="tns:getBooksByAuthorRequest" name="getBooksByAuthorRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateBookResponse">
+    <wsdl:part element="tns:updateBookResponse" name="updateBookResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="searchGenresResponse">
+    <wsdl:part element="tns:searchGenresResponse" name="searchGenresResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAuthorsRequest">
+    <wsdl:part element="tns:getAuthorsRequest" name="getAuthorsRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createGenreRequest">
+    <wsdl:part element="tns:createGenreRequest" name="createGenreRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBooksByGenreResponse">
+    <wsdl:part element="tns:getBooksByGenreResponse" name="getBooksByGenreResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBooksRequest">
+    <wsdl:part element="tns:getBooksRequest" name="getBooksRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateGenreRequest">
+    <wsdl:part element="tns:updateGenreRequest" name="updateGenreRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createGenreResponse">
+    <wsdl:part element="tns:createGenreResponse" name="createGenreResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBooksByGenreRequest">
+    <wsdl:part element="tns:getBooksByGenreRequest" name="getBooksByGenreRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteGenreResponse">
+    <wsdl:part element="tns:deleteGenreResponse" name="deleteGenreResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getGenresByAuthorRequest">
+    <wsdl:part element="tns:getGenresByAuthorRequest" name="getGenresByAuthorRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBooksByAuthorAndGenreRequest">
+    <wsdl:part element="tns:getBooksByAuthorAndGenreRequest" name="getBooksByAuthorAndGenreRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteAuthorResponse">
+    <wsdl:part element="tns:deleteAuthorResponse" name="deleteAuthorResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteBookResponse">
+    <wsdl:part element="tns:deleteBookResponse" name="deleteBookResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="searchBooksRequest">
+    <wsdl:part element="tns:searchBooksRequest" name="searchBooksRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getGenresResponse">
+    <wsdl:part element="tns:getGenresResponse" name="getGenresResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="LibraryPort">
+    <wsdl:operation name="searchGenres">
+      <wsdl:input message="tns:searchGenresRequest" name="searchGenresRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:searchGenresResponse" name="searchGenresResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAuthor">
+      <wsdl:input message="tns:getAuthorRequest" name="getAuthorRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getAuthorResponse" name="getAuthorResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateGenre">
+      <wsdl:input message="tns:updateGenreRequest" name="updateGenreRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:updateGenreResponse" name="updateGenreResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteBook">
+      <wsdl:input message="tns:deleteBookRequest" name="deleteBookRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:deleteBookResponse" name="deleteBookResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchAuthors">
+      <wsdl:input message="tns:searchAuthorsRequest" name="searchAuthorsRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:searchAuthorsResponse" name="searchAuthorsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteAuthor">
+      <wsdl:input message="tns:deleteAuthorRequest" name="deleteAuthorRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:deleteAuthorResponse" name="deleteAuthorResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGenres">
+      <wsdl:input message="tns:getGenresRequest" name="getGenresRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getGenresResponse" name="getGenresResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBook">
+      <wsdl:input message="tns:getBookRequest" name="getBookRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getBookResponse" name="getBookResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBooksByAuthorAndGenre">
+      <wsdl:input message="tns:getBooksByAuthorAndGenreRequest" name="getBooksByAuthorAndGenreRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getBooksByAuthorAndGenreResponse" name="getBooksByAuthorAndGenreResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAuthorByBook">
+      <wsdl:input message="tns:getAuthorByBookRequest" name="getAuthorByBookRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getAuthorByBookResponse" name="getAuthorByBookResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGenresByAuthor">
+      <wsdl:input message="tns:getGenresByAuthorRequest" name="getGenresByAuthorRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getGenresByAuthorResponse" name="getGenresByAuthorResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createBook">
+      <wsdl:input message="tns:createBookRequest" name="createBookRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:createBookResponse" name="createBookResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createAuthor">
+      <wsdl:input message="tns:createAuthorRequest" name="createAuthorRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:createAuthorResponse" name="createAuthorResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGenre">
+      <wsdl:input message="tns:getGenreRequest" name="getGenreRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getGenreResponse" name="getGenreResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAuthorsByGenre">
+      <wsdl:input message="tns:getAuthorsByGenreRequest" name="getAuthorsByGenreRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getAuthorsByGenreResponse" name="getAuthorsByGenreResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGenreByBook">
+      <wsdl:input message="tns:getGenreByBookRequest" name="getGenreByBookRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getGenreByBookResponse" name="getGenreByBookResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAuthor">
+      <wsdl:input message="tns:updateAuthorRequest" name="updateAuthorRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:updateAuthorResponse" name="updateAuthorResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchBooks">
+      <wsdl:input message="tns:searchBooksRequest" name="searchBooksRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:searchBooksResponse" name="searchBooksResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateBook">
+      <wsdl:input message="tns:updateBookRequest" name="updateBookRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:updateBookResponse" name="updateBookResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteGenre">
+      <wsdl:input message="tns:deleteGenreRequest" name="deleteGenreRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:deleteGenreResponse" name="deleteGenreResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBooksByAuthor">
+      <wsdl:input message="tns:getBooksByAuthorRequest" name="getBooksByAuthorRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getBooksByAuthorResponse" name="getBooksByAuthorResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBooks">
+      <wsdl:input message="tns:getBooksRequest" name="getBooksRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getBooksResponse" name="getBooksResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAuthors">
+      <wsdl:input message="tns:getAuthorsRequest" name="getAuthorsRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getAuthorsResponse" name="getAuthorsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createGenre">
+      <wsdl:input message="tns:createGenreRequest" name="createGenreRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:createGenreResponse" name="createGenreResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBooksByGenre">
+      <wsdl:input message="tns:getBooksByGenreRequest" name="getBooksByGenreRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getBooksByGenreResponse" name="getBooksByGenreResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LibraryPortSoap11" type="tns:LibraryPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="searchGenres">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="searchGenresRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="searchGenresResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAuthor">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getAuthorRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAuthorResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateGenre">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="updateGenreRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateGenreResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteBook">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="deleteBookRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteBookResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchAuthors">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="searchAuthorsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="searchAuthorsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteAuthor">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="deleteAuthorRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteAuthorResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGenres">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getGenresRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getGenresResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBook">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getBookRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getBookResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBooksByAuthorAndGenre">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getBooksByAuthorAndGenreRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getBooksByAuthorAndGenreResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAuthorByBook">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getAuthorByBookRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAuthorByBookResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGenresByAuthor">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getGenresByAuthorRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getGenresByAuthorResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createBook">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="createBookRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createBookResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createAuthor">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="createAuthorRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createAuthorResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGenre">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getGenreRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getGenreResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAuthorsByGenre">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getAuthorsByGenreRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAuthorsByGenreResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGenreByBook">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getGenreByBookRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getGenreByBookResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAuthor">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="updateAuthorRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateAuthorResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchBooks">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="searchBooksRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="searchBooksResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateBook">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="updateBookRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateBookResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteGenre">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="deleteGenreRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteGenreResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBooksByAuthor">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getBooksByAuthorRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getBooksByAuthorResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBooks">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getBooksRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getBooksResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAuthors">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getAuthorsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAuthorsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createGenre">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="createGenreRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createGenreResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBooksByGenre">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getBooksByGenreRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getBooksByGenreResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LibraryPortService">
+    <wsdl:port binding="tns:LibraryPortSoap11" name="LibraryPortSoap11">
+      <soap:address location="http://localhost:8080/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
